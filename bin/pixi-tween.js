@@ -1,6 +1,6 @@
 /*!
- * pixi-tween - v1.0.0
- * Compiled Mon, 01 Feb 2021 20:18:19 UTC
+ * pixi-tween - v2.0.0
+ * Compiled Mon, 01 Feb 2021 20:33:56 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -10,7 +10,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('pixi.js')) :
   typeof define === 'function' && define.amd ? define(['pixi.js'], factory) :
   (global = global || self, global.__pixiTween = factory(global.PIXI));
-}(this, (function (PIXI) { 'use strict';
+}(this, (function (pixi_js) { 'use strict';
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -755,8 +755,8 @@
    * @memberof PIXI.tween
    */
 
-  var Tween = /*#__PURE__*/function (_PIXI$utils$EventEmit) {
-    _inherits(Tween, _PIXI$utils$EventEmit);
+  var Tween = /*#__PURE__*/function (_EventEmitter) {
+    _inherits(Tween, _EventEmitter);
 
     var _super = _createSuper(Tween);
 
@@ -1355,7 +1355,7 @@
     }]);
 
     return Tween;
-  }(PIXI.utils.EventEmitter);
+  }(pixi_js.EventEmitter);
 
   function _recursiveApplyTween(to, from, target, time, elapsedTime, easing) {
     for (var k in to) {
@@ -1559,7 +1559,6 @@
    * @class
    * @memberof PIXI.tween
    */
-
   var TweenPath = /*#__PURE__*/function (_PIXI$Graphics) {
     _inherits(TweenPath, _PIXI$Graphics);
 
