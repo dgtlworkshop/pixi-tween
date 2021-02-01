@@ -28,8 +28,8 @@ if (prod) {
 
 const compiled = (new Date()).toUTCString().replace(/GMT/g, 'UTC');
 
-const banner = 
-`/*!
+const banner =
+	`/*!
  * ${pkg.name} - v${pkg.version}
  * Compiled ${compiled}
  *
@@ -39,15 +39,15 @@ const banner =
 
 export default {
 	input,
-	external: ["pixi.js"],
+	external: [ "pixi.js" ],
 	output: {
 		name: '__pixiTween',
 		file,
 		format,
 		banner,
-		globals: {
-			'pixi.js': 'PIXI'
-		},
+		// globals: {
+		// 	'pixi.js': 'PIXI'
+		// },
 		// intro: `if (typeof PIXI === 'undefined') { throw 'PixiJS is required'; }`,
 		sourcemap: false,
 	},
