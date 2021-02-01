@@ -1,20 +1,20 @@
 /*!
  * pixi-tween - v1.0.0
- * Compiled Tue, 15 Dec 2020 12:15:16 UTC
+ * Compiled Mon, 01 Feb 2021 20:18:19 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.__pixiTween = factory());
-}(this, (function () { 'use strict';
-
-  if (typeof PIXI === 'undefined') { throw 'PixiJS is required'; }
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('pixi.js')) :
+  typeof define === 'function' && define.amd ? define(['pixi.js'], factory) :
+  (global = global || self, global.__pixiTween = factory(global.PIXI));
+}(this, (function (PIXI) { 'use strict';
 
   function _typeof(obj) {
+    "@babel/helpers - typeof";
+
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
       _typeof = function (obj) {
         return typeof obj;
@@ -81,6 +81,19 @@
     return _setPrototypeOf(o, p);
   }
 
+  function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   function _assertThisInitialized(self) {
     if (self === void 0) {
       throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -95,6 +108,25 @@
     }
 
     return _assertThisInitialized(self);
+  }
+
+  function _createSuper(Derived) {
+    var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+    return function _createSuperInternal() {
+      var Super = _getPrototypeOf(Derived),
+          result;
+
+      if (hasNativeReflectConstruct) {
+        var NewTarget = _getPrototypeOf(this).constructor;
+
+        result = Reflect.construct(Super, arguments, NewTarget);
+      } else {
+        result = Super.apply(this, arguments);
+      }
+
+      return _possibleConstructorReturn(this, result);
+    };
   }
 
   function _superPropBase(object, property) {
@@ -723,10 +755,10 @@
    * @memberof PIXI.tween
    */
 
-  var Tween =
-  /*#__PURE__*/
-  function (_PIXI$utils$EventEmit) {
+  var Tween = /*#__PURE__*/function (_PIXI$utils$EventEmit) {
     _inherits(Tween, _PIXI$utils$EventEmit);
+
+    var _super = _createSuper(Tween);
 
     /**
      * @param {*} target - Target object to tween
@@ -738,7 +770,7 @@
 
       _classCallCheck(this, Tween);
 
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(Tween).call(this));
+      _this = _super.call(this);
       _this.target = target;
 
       if (manager) {
@@ -1364,9 +1396,7 @@
    * @memberof PIXI.tween
    */
 
-  var TweenManager =
-  /*#__PURE__*/
-  function () {
+  var TweenManager = /*#__PURE__*/function () {
     /** */
     function TweenManager() {
       _classCallCheck(this, TweenManager);
@@ -1529,10 +1559,11 @@
    * @class
    * @memberof PIXI.tween
    */
-  var TweenPath =
-  /*#__PURE__*/
-  function (_PIXI$Graphics) {
+
+  var TweenPath = /*#__PURE__*/function (_PIXI$Graphics) {
     _inherits(TweenPath, _PIXI$Graphics);
+
+    var _super = _createSuper(TweenPath);
 
     /**
      *
@@ -1542,7 +1573,7 @@
 
       _classCallCheck(this, TweenPath);
 
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(TweenPath).call(this));
+      _this = _super.call(this);
       /** @member {PIXI.Polygon} - PIXI object to use as the path */
 
       _this.polygon = new PIXI.Polygon();
@@ -2016,27 +2047,22 @@
     return TweenPath;
   }(PIXI.Graphics);
 
-  PIXI.Graphics.prototype.drawPath = function drawPath(path) {
-    path.parsePoints();
-    this.drawShape(path.polygon);
-    return this;
-  };
+  // PIXI.Graphics.prototype.drawPath = function drawPath(path) {
+  // 	path.parsePoints();
+  // 	this.drawShape(path.polygon);
+  // 	return this;
+  // };
+
   /**
    * @namespace PIXI.tween
    */
-
 
   var tween = {
     TweenManager: TweenManager,
     Tween: Tween,
     Easing: Easing,
     TweenPath: TweenPath
-  };
-
-  if (!PIXI.tweenManager) {
-    PIXI.tweenManager = new TweenManager();
-    PIXI.tween = tween;
-  }
+  }; // if (!PIXI.tweenManager) {
 
   return tween;
 
