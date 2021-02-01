@@ -7,7 +7,7 @@
     "Nazariglez <nazari.nz@gmail.com> (http://www.nazariglez.com)"
   ],
   "main": "bin/pixi-tween.min.js",
-  "module": "bin/pixi-tween.es.min.js",
+  "module": "src/index.js",
   "types": "./pixi-tween.d.ts",
   "homepage": "https://github.com/themoonrat/pixi-tween",
   "bugs": "https://github.com/themoonrat/pixi-tween/issues",
@@ -64,6 +64,7 @@
   },
   "files": [
     "bin",
+    "src",
     "pixi-tween.d.ts"
   ]
 }
