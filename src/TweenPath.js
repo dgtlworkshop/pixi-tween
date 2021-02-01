@@ -1,10 +1,11 @@
+import { Graphics, Point } from 'pixi.js';
 /**
  * Class that allows drawing a path using PIXI.Graphics, which can then be followed and used as a tween
  *
  * @class
  * @memberof PIXI.tween
  */
-export default class TweenPath extends PIXI.Graphics {
+export default class TweenPath extends Graphics {
 	/**
 	 *
 	 */
@@ -28,8 +29,8 @@ export default class TweenPath extends PIXI.Graphics {
 
 		this.lineStyle(4, brightColor, 1, 0.5, false);
 
-		this._tmpPoint = new PIXI.Point();
-		this._tmpPoint2 = new PIXI.Point();
+		this._tmpPoint = new Point();
+		this._tmpPoint2 = new Point();
 		this._tmpDistance = [];
 	}
 
@@ -145,7 +146,7 @@ export default class TweenPath extends PIXI.Graphics {
 				n = i;
 			}
 
-			if (distance < this._tmpDistance[i]) {break;}
+			if (distance < this._tmpDistance[i]) { break; }
 		}
 
 		if (n === this.length - 1) {
