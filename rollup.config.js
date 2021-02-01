@@ -1,8 +1,8 @@
 import pkg from './package.json';
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
-import { uglify } from 'rollup-plugin-uglify';
-import { minify } from 'uglify-es';
+import { terser } from "rollup-plugin-terser";
+// import { minify } from 'uglify-es';
 
 const prod = process.env.BUILD === 'prod';
 const format = process.env.FORMAT || 'umd';
@@ -20,15 +20,16 @@ const plugins = [
 ];
 
 if (prod) {
-	plugins.push(uglify({
+	plugins.push(terser({
 		mangle: true,
 		compress: true,
-	}, minify));
+	}));
 }
 
 const compiled = (new Date()).toUTCString().replace(/GMT/g, 'UTC');
 
-const banner = `/*!
+const banner = 
+`/*!
  * ${pkg.name} - v${pkg.version}
  * Compiled ${compiled}
  *
@@ -38,13 +39,16 @@ const banner = `/*!
 
 export default {
 	input,
+	external: ["pixi.js"],
 	output: {
 		name: '__pixiTween',
 		file,
 		format,
 		banner,
-		globals: `PIXI`,
-		intro: `if (typeof PIXI === 'undefined') { throw 'PixiJS is required'; }`,
+		globals: {
+			'pixi.js': 'PIXI'
+		},
+		// intro: `if (typeof PIXI === 'undefined') { throw 'PixiJS is required'; }`,
 		sourcemap: false,
 	},
 	plugins
