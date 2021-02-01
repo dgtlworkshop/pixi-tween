@@ -1,10 +1,12 @@
 /*!
- * pixi-tween - v1.0.0
- * Compiled Mon, 01 Feb 2021 20:22:05 UTC
+ * pixi-tween - v2.0.0
+ * Compiled Mon, 01 Feb 2021 20:28:42 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  */
+
+import { EventEmitter } from 'pixi.js';
 
 function _typeof(obj) {
   "@babel/helpers - typeof";
@@ -749,8 +751,8 @@ var Easing = {
  * @memberof PIXI.tween
  */
 
-var Tween = /*#__PURE__*/function (_PIXI$utils$EventEmit) {
-  _inherits(Tween, _PIXI$utils$EventEmit);
+var Tween = /*#__PURE__*/function (_EventEmitter) {
+  _inherits(Tween, _EventEmitter);
 
   var _super = _createSuper(Tween);
 
@@ -1349,7 +1351,7 @@ var Tween = /*#__PURE__*/function (_PIXI$utils$EventEmit) {
   }]);
 
   return Tween;
-}(PIXI.utils.EventEmitter);
+}(EventEmitter);
 
 function _recursiveApplyTween(to, from, target, time, elapsedTime, easing) {
   for (var k in to) {
