@@ -1,6 +1,8 @@
 pixi-tween
 ======================
 
+Monkey-patches `themoonrat/pixi-tween` to work as an ES module.
+
 pixi-tween is a plugin for PixiJS v5.0.0 or higher to create tween animations.
 
 ## API documentation
