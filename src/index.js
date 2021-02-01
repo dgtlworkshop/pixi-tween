@@ -28,3 +28,8 @@ const tween = {
 // }
 
 export default tween;
+
+export { TweenManager };
+export { Tween };
+export { TweenPath };
+export { Easing };

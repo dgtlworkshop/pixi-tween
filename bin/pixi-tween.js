@@ -1,16 +1,16 @@
 /*!
  * pixi-tween - v2.0.0
- * Compiled Mon, 01 Feb 2021 20:38:21 UTC
+ * Compiled Mon, 01 Feb 2021 21:44:01 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.__pixiTween = factory());
-}(this, (function () { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('pixi.js')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'pixi.js'], factory) :
+  (global = global || self, factory(global.__pixiTween = {}, global.pixi_js));
+}(this, (function (exports, pixi_js) { 'use strict';
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -755,8 +755,8 @@
    * @memberof PIXI.tween
    */
 
-  var Tween = /*#__PURE__*/function (_PIXI$utils$EventEmit) {
-    _inherits(Tween, _PIXI$utils$EventEmit);
+  var Tween = /*#__PURE__*/function (_utils$EventEmitter) {
+    _inherits(Tween, _utils$EventEmitter);
 
     var _super = _createSuper(Tween);
 
@@ -1355,7 +1355,7 @@
     }]);
 
     return Tween;
-  }(PIXI.utils.EventEmitter);
+  }(pixi_js.utils.EventEmitter);
 
   function _recursiveApplyTween(to, from, target, time, elapsedTime, easing) {
     for (var k in to) {
@@ -1559,8 +1559,9 @@
    * @class
    * @memberof PIXI.tween
    */
-  var TweenPath = /*#__PURE__*/function (_PIXI$Graphics) {
-    _inherits(TweenPath, _PIXI$Graphics);
+
+  var TweenPath = /*#__PURE__*/function (_Graphics) {
+    _inherits(TweenPath, _Graphics);
 
     var _super = _createSuper(TweenPath);
 
@@ -1590,8 +1591,8 @@
 
       _this.lineStyle(4, brightColor, 1, 0.5, false);
 
-      _this._tmpPoint = new PIXI.Point();
-      _this._tmpPoint2 = new PIXI.Point();
+      _this._tmpPoint = new pixi_js.Point();
+      _this._tmpPoint2 = new pixi_js.Point();
       _this._tmpDistance = [];
       return _this;
     }
@@ -2044,7 +2045,7 @@
     }]);
 
     return TweenPath;
-  }(PIXI.Graphics);
+  }(pixi_js.Graphics);
 
   // PIXI.Graphics.prototype.drawPath = function drawPath(path) {
   // 	path.parsePoints();
@@ -2063,6 +2064,12 @@
     TweenPath: TweenPath
   }; // if (!PIXI.tweenManager) {
 
-  return tween;
+  exports.Easing = Easing;
+  exports.Tween = Tween;
+  exports.TweenManager = TweenManager;
+  exports.TweenPath = TweenPath;
+  exports.default = tween;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
