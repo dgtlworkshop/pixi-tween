@@ -1,16 +1,16 @@
 /*!
  * pixi-tween - v2.0.0
- * Compiled Mon, 01 Feb 2021 20:33:56 UTC
+ * Compiled Mon, 01 Feb 2021 20:38:21 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  */
 
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('pixi.js')) :
-  typeof define === 'function' && define.amd ? define(['pixi.js'], factory) :
-  (global = global || self, global.__pixiTween = factory(global.PIXI));
-}(this, (function (pixi_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global.__pixiTween = factory());
+}(this, (function () { 'use strict';
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -755,8 +755,8 @@
    * @memberof PIXI.tween
    */
 
-  var Tween = /*#__PURE__*/function (_EventEmitter) {
-    _inherits(Tween, _EventEmitter);
+  var Tween = /*#__PURE__*/function (_PIXI$utils$EventEmit) {
+    _inherits(Tween, _PIXI$utils$EventEmit);
 
     var _super = _createSuper(Tween);
 
@@ -1355,7 +1355,7 @@
     }]);
 
     return Tween;
-  }(pixi_js.EventEmitter);
+  }(PIXI.utils.EventEmitter);
 
   function _recursiveApplyTween(to, from, target, time, elapsedTime, easing) {
     for (var k in to) {

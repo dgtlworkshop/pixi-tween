@@ -1,4 +1,3 @@
-import { EventEmitter } from "pixi.js";
 import Easing from './Easing';
 
 /**
@@ -71,7 +70,7 @@ import Easing from './Easing';
  * @class
  * @memberof PIXI.tween
  */
-export default class Tween extends EventEmitter {
+export default class Tween extends PIXI.utils.EventEmitter{
 	/**
 	 * @param {*} target - Target object to tween
 	 * @param {PIXI.tween.TweenManager} [manager] - Tween manager to handle this tween
