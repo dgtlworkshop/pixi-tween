@@ -1,6 +1,6 @@
 /*!
- * pixi-tween - v2.0.0
- * Compiled Thu, 27 May 2021 22:31:26 UTC
+ * pixi-tween - v2.0.1
+ * Compiled Thu, 27 May 2021 22:58:55 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -1403,9 +1403,15 @@
     function TweenManager() {
       _classCallCheck(this, TweenManager);
 
-      /** @member {Array.<PIXI.tween.Tween>} - The array of tweens being manager */
+      /**
+       * @member {Array.<PIXI.tween.Tween>} - The array of tweens being manager
+       * @type {Array<Tween>}
+       */
       this.tweens = [];
-      /** @member {Array.<PIXI.tween.Tween>} - The array of tweens to remove at the end of the next update */
+      /**
+       * @member {Array<PIXI.tween.Tween>} - The array of tweens to remove at the end of the next update
+       * @type {Array<Tween>}
+      */
 
       this._tweensToRemove = [];
       this._lastTime = 0;
@@ -1436,9 +1442,17 @@
 
         if (this._tweensToRemove.length) {
           for (var _i = 0; _i < this._tweensToRemove.length; ++_i) {
+            var _tweenToRemove$target;
+
             var tweenToRemove = this._tweensToRemove[_i];
 
             if (!tweenToRemove.active) {
+              this._remove(tweenToRemove);
+            } else if ((_tweenToRemove$target = tweenToRemove.target) !== null && _tweenToRemove$target !== void 0 && _tweenToRemove$target._destroyed) {
+              // check to verify the tween hasn't been destroyed
+              // target._destroyed can be undefined if the object isn't a PIXI.DisplayObject
+              tweenToRemove.end(false);
+
               this._remove(tweenToRemove);
             }
           }

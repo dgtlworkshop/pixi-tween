@@ -43,9 +43,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.14.3",
     "@babel/preset-env": "^7.12.11",
     "electron": "^7.3.3",
-    "eslint": "^6.8.0",
+    "eslint": "^7.5.0",
     "gh-pages": "^2.2.0",
     "jaguarjs-jsdoc": "^1.1.0",
     "jsdoc": "^3.6.6",

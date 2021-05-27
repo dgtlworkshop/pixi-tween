@@ -9,10 +9,16 @@ import Tween from './Tween';
 export default class TweenManager {
 	/** */
 	constructor() {
-		/** @member {Array.<PIXI.tween.Tween>} - The array of tweens being manager */
+		/**
+		 * @member {Array.<PIXI.tween.Tween>} - The array of tweens being manager
+		 * @type {Array<Tween>}
+		 */
 		this.tweens = [];
 
-		/** @member {Array.<PIXI.tween.Tween>} - The array of tweens to remove at the end of the next update */
+		/**
+		 * @member {Array<PIXI.tween.Tween>} - The array of tweens to remove at the end of the next update
+		 * @type {Array<Tween>}
+		*/
 		this._tweensToRemove = [];
 
 		this._lastTime = 0;
@@ -43,6 +49,11 @@ export default class TweenManager {
 				const tweenToRemove = this._tweensToRemove[i];
 
 				if (!tweenToRemove.active) {
+					this._remove(tweenToRemove);
+				} else if (tweenToRemove.target?._destroyed) {
+					// check to verify the tween hasn't been destroyed
+					// target._destroyed can be undefined if the object isn't a PIXI.DisplayObject
+					tweenToRemove.end(false);
 					this._remove(tweenToRemove);
 				}
 			}
