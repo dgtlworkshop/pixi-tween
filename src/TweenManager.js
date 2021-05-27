@@ -53,7 +53,7 @@ export default class TweenManager {
 				} else if (tweenToRemove.target?._destroyed) {
 					// check to verify the tween hasn't been destroyed
 					// target._destroyed can be undefined if the object isn't a PIXI.DisplayObject
-					tweenToRemove.end(false);
+					tweenToRemove._end(false);
 					this._remove(tweenToRemove);
 				}
 			}

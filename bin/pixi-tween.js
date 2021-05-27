@@ -1,6 +1,6 @@
 /*!
  * pixi-tween - v2.0.1
- * Compiled Thu, 27 May 2021 22:58:55 UTC
+ * Compiled Thu, 27 May 2021 23:02:24 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -1451,7 +1451,7 @@
             } else if ((_tweenToRemove$target = tweenToRemove.target) !== null && _tweenToRemove$target !== void 0 && _tweenToRemove$target._destroyed) {
               // check to verify the tween hasn't been destroyed
               // target._destroyed can be undefined if the object isn't a PIXI.DisplayObject
-              tweenToRemove.end(false);
+              tweenToRemove._end(false);
 
               this._remove(tweenToRemove);
             }
