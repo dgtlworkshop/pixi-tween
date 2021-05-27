@@ -1,6 +1,6 @@
 /*!
  * pixi-tween - v2.0.0
- * Compiled Mon, 01 Feb 2021 21:44:01 UTC
+ * Compiled Thu, 27 May 2021 22:17:35 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -1425,7 +1425,7 @@
         for (var i = 0; i < this.tweens.length; ++i) {
           var tween = this.tweens[i];
 
-          if (tween.active) {
+          if (tween.active && !tween.target._destroyed) {
             tween.update(deltaMS);
           } else {
             this._tweensToRemove.push(tween);

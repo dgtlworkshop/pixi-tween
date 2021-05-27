@@ -31,7 +31,7 @@ export default class TweenManager {
 		for (let i = 0; i < this.tweens.length; ++i) {
 			const tween = this.tweens[i];
 
-			if (tween.active) {
+			if (tween.active && !tween.target._destroyed) {
 				tween.update(deltaMS);
 			} else {
 				this._tweensToRemove.push(tween);
