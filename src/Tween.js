@@ -341,6 +341,8 @@ export default class Tween extends utils.EventEmitter {
 
 		if (end) {
 			this._end();
+		} else if (this._resolvePromise) {
+			this._resolvePromise()
 		}
 
 		return this;

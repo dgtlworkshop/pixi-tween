@@ -1,6 +1,6 @@
 /*!
  * pixi-tween - v2.0.0
- * Compiled Thu, 27 May 2021 22:17:35 UTC
+ * Compiled Thu, 27 May 2021 22:31:26 UTC
  *
  * pixi-tween is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -1016,6 +1016,8 @@
 
         if (end) {
           this._end();
+        } else if (this._resolvePromise) {
+          this._resolvePromise();
         }
 
         return this;

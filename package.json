@@ -1,6 +1,6 @@
 {
   "name": "pixi-tween",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "pixi-tween is a tween plugin for Pixi.js v4.1.0 or higher",
   "author": "Dave Moore <themoonrat@gmail.com>",
   "contributors": [
